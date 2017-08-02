@@ -12,7 +12,7 @@ build:
 
 publish:
     docker:
-        repo: $$DOCKER_USERNAME/Gerard
+        repo: $$DOCKER_USERNAME/gerard
         tag: dev
         username: $$DOCKER_USERNAME
         password: $$DOCKER_PASSWORD
