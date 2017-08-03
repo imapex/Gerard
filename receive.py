@@ -20,9 +20,16 @@ def gerard():
         webhook_obj = Webhook(request.json)
         print(request.json)
         return '', 200
+        message = api.messages.get(webhook_obj.data.id)
+        me = api.people.me()
+        
+        if message.personId == me.id: 
+           return 'Ok'
+        else:
+           response_message = api.messages.create(webhook_obj.data.roomId, text=message.text)
     else:
         abort(400)
-
+    return 'Ok'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000)

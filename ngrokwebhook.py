@@ -25,7 +25,7 @@ def findwebhookidbyname(api, webhookname):
 webhookname="gerard"
 resource="messages"
 event="created"
-url_suffix="/sparkwebhook"
+url_suffix="/gerard"
 
 #grab the at from a local at.txt file instead of global variable
 fat=open ("at.txt","r+")
