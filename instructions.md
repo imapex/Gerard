@@ -14,10 +14,16 @@ sudo docker logs gerard
 #to expose port 4040 (ngrok localhost to monitor)
 sudo docker port gerard 4040
 
+#to copy at
+sudo docker cp /app/at.txt gerard:/app/at.txt
+
+
 #to connect to CLI on container
 sudo docker exec -i -t gerard /bin/ash
 
+
 #from gerard container CLI to start webhook receiver on port :5000
+python ngrokwebhook.py
 python receive.py
 
 
