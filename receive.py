@@ -4,6 +4,13 @@ from flask import Flask, request, abort
 import requests
 from ciscosparkapi import CiscoSparkAPI, Webhook
 
+
+#grab the at from a local at.txt file instead of global variable
+fat=open ("at.txt","r+")
+at=fat.readline().rstrip()
+fat.close
+
+
 app=Flask(__name__)
 
 

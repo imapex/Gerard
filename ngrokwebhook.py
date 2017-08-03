@@ -22,7 +22,7 @@ def findwebhookidbyname(api, webhookname):
     return "not found"
 
 #Webhook attributes
-webhookname="testwebhook"
+webhookname="gerard"
 resource="messages"
 event="created"
 url_suffix="/sparkwebhook"
