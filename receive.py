@@ -10,6 +10,7 @@ fat=open ("at.txt","r+")
 at=fat.readline().rstrip()
 fat.close
 
+api=CiscoSparkAPI(at)
 
 app=Flask(__name__)
 
@@ -19,13 +20,13 @@ def gerard():
     if request.method == 'POST':
         webhook_obj = Webhook(request.json)
         print(request.json)
-        return '', 200
+        
         message = api.messages.get(webhook_obj.data.id)
         me = api.people.me()
         
         if message.personId == me.id: 
            print("bot spoke")
-           return 'Ok'
+           return 'Ok', 200
         else:
            roomid = webhook_obj.data.roomId
            message_text = message.text
@@ -33,7 +34,7 @@ def gerard():
            print (response_message)
     else:
         abort(400)
-    return 'Ok'
+    return 'Ok', 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=5000)
