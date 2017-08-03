@@ -24,9 +24,13 @@ def gerard():
         me = api.people.me()
         
         if message.personId == me.id: 
+           print("bot spoke")
            return 'Ok'
         else:
-           response_message = api.messages.create(webhook_obj.data.roomId, text=message.text)
+           roomid = webhook_obj.data.roomId
+           message_text = message.text
+           response_message = api.messages.create(roomid, text=message_text)
+           print (response_message)
     else:
         abort(400)
     return 'Ok'
